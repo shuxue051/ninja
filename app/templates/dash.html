@@ -1,0 +1,33 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Dash board</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script src="http://mini.jiasule.com/framework/jquery/1.8.3/jquery-1.8.3.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="ck/static/chartkick.js"></script>
+</head>
+<body>
+<table>
+   <tr>
+   <td>{{ name }}</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   </tr>
+   </table>
+
+
+   {% pie_chart data %}
+   {% line_chart exchange with min=0.4 id='rates' %}
+        {% pie_chart browser_stats with library={"title":"Browser Statistics, May 2013"} %}
+        {% column_chart browser_stats %}
+        {% line_chart temperature with id='temperature' %}
+        {% bar_chart sizes with id='sizes' %}
+        {% area_chart areas with id='areas' %}
+</body>
+</html>
